@@ -15,7 +15,9 @@ body{font-family:'Poppins',sans-serif;background:var(--white);color:#222;scroll-
   color:var(--white);
   text-align:center;
   padding:90px 25px 70px;
-  animation:slideDown 1.3s ease-out;
+  opacity:0;
+  transform:translateY(-30px);
+  animation:slideDown 1.5s ease forwards;
 }
 .hero-img{
   width:220px;height:140px;
@@ -41,12 +43,9 @@ body{font-family:'Poppins',sans-serif;background:var(--white);color:#222;scroll-
 .cta-btn:hover{background:#e6f2e6;box-shadow:0 0 12px rgba(0,128,0,.4);}
 
 /* ===== SECTIONS ===== */
-section{padding:70px 25px;max-width:950px;margin:auto;}
+section{padding:70px 25px;max-width:950px;margin:auto;opacity:0;transform:translateY(20px);animation:fadeUp 1.2s ease forwards;}
 h2{text-align:center;color:var(--green);margin-bottom:25px;font-size:1.8rem;}
 p{line-height:1.7;margin-bottom:15px;}
-
-/* ===== ABOUT ===== */
-.about{animation:fadeUp 1s ease both;}
 
 /* ===== OFFER ===== */
 .offer-boxes{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin:40px 0;}
@@ -100,7 +99,8 @@ p{line-height:1.7;margin-bottom:15px;}
   background:linear-gradient(135deg,var(--green),#66bb6a);
   color:var(--white);
   padding:80px 25px;
-  animation:fadeUp 1.2s ease both;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 1.5s ease forwards;
 }
 .final-cta .cta-btn{background:var(--white);color:var(--green);}
 .final-cta .cta-btn:hover{background:#e6f2e6;color:var(--green);}
@@ -113,15 +113,18 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
   position:fixed;bottom:22px;right:22px;width:60px;height:60px;border-radius:50%;
   background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;
   font-size:28px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);
-  animation:pulse 1.6s infinite;z-index:999;
+  z-index:999;
 }
-@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.15);}100%{transform:scale(1);}}
 
-/* ===== MOTIONS ===== */
-.fade-in{opacity:0;transform:translateY(40px);transition:all 1s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
-@keyframes fadeUp{0%{opacity:0;transform:translateY(40px);}100%{opacity:1;transform:translateY(0);}}
-@keyframes slideDown{0%{transform:translateY(-60px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
+/* ===== KEYFRAMES ===== */
+@keyframes fadeUp{
+  0%{opacity:0;transform:translateY(20px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+@keyframes slideDown{
+  0%{opacity:0;transform:translateY(-30px);}
+  100%{opacity:1;transform:translateY(0);}
+}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
@@ -134,7 +137,7 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
 <body>
 
 <!-- HERO SECTION -->
-<header class="hero fade-in">
+<header class="hero">
   <img src="after.jpg.jpg" alt="Coach Barbie" class="hero-img"/>
   <h1>Hi, I'm Coach Barbie 👋</h1>
   <p>I help everyday people start earning real money online using just their smartphones — no technical skills needed!</p>
@@ -143,13 +146,13 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
 </header>
 
 <!-- ABOUT SECTION -->
-<section class="about fade-in">
+<section class="about">
   <h2>About Me</h2>
   <p>I started my online journey struggling to make a single sale. After testing countless methods, I discovered a simple system that works, helping ordinary people earn their first online income in days. Now, I teach others to achieve the same success quickly and confidently.</p>
 </section>
 
 <!-- OFFERS SECTION -->
-<section class="offer fade-in">
+<section class="offer">
   <h2>My Special Offer 💰</h2>
   <p>Introducing <strong>“The Online Income Starter Pack”</strong> — a step-by-step roadmap for beginners to make their first $100–$200 online with zero experience.</p>
   <div class="offer-boxes">
@@ -176,13 +179,13 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
 </section>
 
 <!-- TESTIMONIALS SECTION -->
-<section class="testimonials fade-in">
+<section class="testimonials">
   <h2>What My Students Say</h2>
 
   <div class="testimonial">
     <img src="jordy.jpg.jpg" alt="Student 1"/>
     <div class="text">
-      <p>“I had no idea how to start making money online, but Coach Barbie’s step-by-step guidance made it so simple. In just 7 days, I earned my first $180! Her mentorship is priceless.”</p>
+      <p>“I had no idea how to start making money online, but Coach Barbie’s guidance made it simple. In just 7 days, I earned my first $180!”</p>
       <h4>– Michael D.</h4>
     </div>
   </div>
@@ -190,7 +193,7 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
   <div class="testimonial">
     <img src="sadat.jpg.jpg" alt="Student 2"/>
     <div class="text">
-      <p>“Coach Barbie doesn’t just teach, she walks with you. I followed her methods, and within 2 weeks, I was making consistent income using just my phone. I’ve never felt more confident about my financial future.”</p>
+      <p>“Coach Barbie doesn’t just teach, she walks with you. Within 2 weeks, I was making consistent income using just my phone.”</p>
       <h4>– Sarah K.</h4>
     </div>
   </div>
@@ -198,7 +201,7 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
   <div class="testimonial">
     <img src="asenso.jpg.jpg" alt="Student 3"/>
     <div class="text">
-      <p>“Joining Coach Barbie’s program was the best decision ever. I went from zero online experience to making over $250 in one week. Her techniques are clear, practical, and easy to implement.”</p>
+      <p>“Joining Coach Barbie’s program was the best decision ever. I made over $250 in one week!”</p>
       <h4>– Daniel O.</h4>
     </div>
   </div>
@@ -206,7 +209,7 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
   <div class="testimonial">
     <img src="naomi.jpg.jpg" alt="Student 4"/>
     <div class="text">
-      <p>“I was skeptical at first, but Coach Barbie’s mentorship exceeded all my expectations. I made my first sale within 3 days, and now I’m earning steadily. She truly knows how to help beginners succeed.”</p>
+      <p>“I was skeptical at first, but Coach Barbie’s mentorship exceeded all my expectations. I made my first sale within 3 days.”</p>
       <h4>– Rebecca L.</h4>
     </div>
   </div>
@@ -214,14 +217,14 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
   <div class="testimonial">
     <img src="boison.jpg.jpg" alt="Student 5"/>
     <div class="text">
-      <p>“Thanks to Coach Barbie, I now understand how to create real online income. Her tips are simple, actionable, and effective. I’ve finally gained financial confidence and independence!”</p>
+      <p>“Thanks to Coach Barbie, I now understand how to create real online income. Her tips are simple, actionable, and effective.”</p>
       <h4>– Joshua M.</h4>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta fade-in">
+<section class="final-cta">
   <h2>Ready to Start Your Online Journey?</h2>
   <p>You don’t need to be techy or experienced — just ready to learn. Join my WhatsApp community and start today.</p>
   <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Join Now</a>
@@ -235,15 +238,6 @@ footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9
 
 <!-- JS -->
 <script>
-// fade-in on scroll
-const fades=document.querySelectorAll('.fade-in');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('visible');}
-  });
-});
-fades.forEach(el=>obs.observe(el));
-
 // 24-hour countdown
 function startCountdown() {
   const countdownEl = document.getElementById('countdown');
