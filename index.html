@@ -319,37 +319,41 @@ window.addEventListener("load", () => {
   document.body.style.opacity = "1";
 });
 
-// ===== Countdown Timer (24 hours) =====
+<script>
+// ===== Countdown Timer =====
 const countdown = document.getElementById("countdown");
+
+// Set timer for 24 hours from now
 const endDate = new Date().getTime() + 24 * 60 * 60 * 1000;
 
 function updateCountdown() {
   const now = new Date().getTime();
   const distance = endDate - now;
 
-  if (distance < 0) {
+  if (distance <= 0) {
     countdown.innerHTML = "Offer expired!";
     return;
   }
 
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
+  const hours = Math.floor((distance / (1000 * 60 * 60)));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   countdown.innerHTML = Offer ends in: ${hours}h : ${minutes}m : ${seconds}s;
 }
-setInterval(updateCountdown, 1000);
 
-// ===== Fade Up Testimonials on Scroll =====
+updateCountdown(); // Run once immediately
+setInterval(updateCountdown, 1000); // Update every second
+
+// ===== Fade Up on Scroll =====
 const testimonials = document.querySelectorAll(".testimonial");
 window.addEventListener("scroll", () => {
   testimonials.forEach(t => {
     const rect = t.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
-      t.classList.add("visible");
+      t.style.opacity = "1";
+      t.style.transform = "translateY(0)";
     }
   });
 });
 </script>
-</body>
-</html>
