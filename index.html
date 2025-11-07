@@ -261,7 +261,7 @@ footer a {
     <p>I help everyday people turn their phones into income tools through affiliate marketing. If I could do it, so can you!</p>
     <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta">Join My WhatsApp Community</a>
 
-    <div class="timer" id="countdown">Offer ends in: 00h : 00m : 00s</div>
+    <div class="timer" id="countdown">Offer ends in: 00h : 30m : 00s</div>
   </section>
 
   <section class="story">
@@ -337,27 +337,26 @@ footer a {
   </footer>
 
 <script>
-// ===== Countdown Timer =====
-const countdown = document.getElementById("countdown");
-const endDate = new Date();
-endDate.setHours(endDate.getHours() + 24); // 24-hour countdown
+  // Set the countdown time (in seconds) — for example, 10 minutes
+  let time = 10 * 60;
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = endDate - now;
+  const countdownEl = document.getElementById("countdown");
 
-  if (distance < 0) {
-    countdown.innerHTML = "Offer expired!";
-    return;
-  }
+  const updateTimer = () => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    countdownEl.textContent = ${minutes}:${seconds < 10 ? '0' : ''}${seconds};
+    time--;
 
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
+    if (time < 0) {
+      clearInterval(timer);
+      countdownEl.textContent = "Time's up!";
+    }
+  };
 
-  countdown.innerHTML = Offer ends in: ${hours}h : ${minutes}m : ${seconds}s;
-}
-setInterval(updateCountdown, 1000);
+  updateTimer(); // Show initial time immediately
+  const timer = setInterval(updateTimer, 1000);
+</script>
 
 // ===== Fade Up on Scroll =====
 const testimonials = document.querySelectorAll(".testimonial");
