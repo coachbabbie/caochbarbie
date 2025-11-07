@@ -24,8 +24,6 @@
 body {
   background: var(--light);
   color: var(--dark);
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
 }
 
 /* ===== HERO SECTION ===== */
@@ -38,8 +36,8 @@ body {
 }
 
 .hero img {
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 4px solid var(--white);
   object-fit: cover;
@@ -127,14 +125,10 @@ body {
   padding: 40px;
   margin-bottom: 40px;
   box-shadow: var(--shadow);
-  transition: transform 0.4s ease;
+  transition: .4s ease;
+  min-height: 220px;
+  animation: fadeUp 1s ease forwards;
   opacity: 0;
-  transform: translateY(50px);
-}
-
-.testimonial.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .testimonial:hover {
@@ -142,8 +136,8 @@ body {
 }
 
 .testimonial img {
-  width: 250px;
-  height: auto;
+  width: 130px;
+  height: 130px;
   border-radius: 16px;
   object-fit: cover;
   margin-right: 25px;
@@ -213,17 +207,22 @@ footer a {
   100% {opacity: 1; transform: translateY(0);}
 }
 
+@keyframes fadeUp {
+  to {opacity: 1; transform: translateY(0);}
+}
+
 @media(max-width: 768px) {
   .testimonial {
     flex-direction: column;
     text-align: center;
     padding: 28px;
+    min-height: auto;
   }
 
   .testimonial img {
     margin: 0 0 20px;
-    width: 90%;
-    max-width: 320px;
+    width: 120px;
+    height: 120px;
   }
 
   .testimonial .text p {
@@ -239,6 +238,7 @@ footer a {
     <h1>Coach Barbie</h1>
     <p>I help everyday people turn their phones into income tools through affiliate marketing. If I could do it, so can you!</p>
     <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta">Join My WhatsApp Community</a>
+
     <div class="timer" id="countdown">Offer ends in: 00h : 00m : 00s</div>
   </section>
 
@@ -314,14 +314,10 @@ footer a {
   </footer>
 
 <script>
-// ===== Smooth Page Fade-In =====
-window.addEventListener("load", () => {
-  document.body.style.opacity = "1";
-});
-
-// ===== Countdown Timer (24 hours) =====
+// ===== Countdown Timer =====
 const countdown = document.getElementById("countdown");
-const endDate = new Date().getTime() + 24 * 60 * 60 * 1000;
+const endDate = new Date();
+endDate.setHours(endDate.getHours() + 24); // 24-hour countdown
 
 function updateCountdown() {
   const now = new Date().getTime();
@@ -340,13 +336,14 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000);
 
-// ===== Fade Up Testimonials on Scroll =====
+// ===== Fade Up on Scroll =====
 const testimonials = document.querySelectorAll(".testimonial");
 window.addEventListener("scroll", () => {
   testimonials.forEach(t => {
     const rect = t.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
-      t.classList.add("visible");
+      t.style.opacity = "1";
+      t.style.transform = "translateY(0)";
     }
   });
 });
