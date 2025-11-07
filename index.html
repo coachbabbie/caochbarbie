@@ -1,261 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Coach Barbie | Make Money Online</title>
 <style>
-:root {--green:#28a745;--white:#ffffff;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:var(--white);color:#222;scroll-behavior:smooth;overflow-x:hidden;}
+:root{
+  --green: #28a745;
+  --white:#ffffff;
+  --dark-green:#19692c;
+}
+
+/* reset + base */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--white);
+  color:#222;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
 
 /* ===== HERO ===== */
 .hero{
-  background:linear-gradient(135deg,var(--green),#66bb6a);
+  background: linear-gradient(135deg, var(--green), #66bb6a);
   color:var(--white);
   text-align:center;
-  padding:90px 25px 70px;
+  padding:86px 22px 64px;
+  /* initial state for smooth load */
   opacity:0;
-  transform:translateY(-30px);
-  animation:slideDown 1.5s ease forwards;
+  transform:translateY(-22px);
+  animation:heroIn 900ms ease-out forwards;
+  will-change: transform, opacity;
 }
+@keyframes heroIn{
+  to { opacity:1; transform:translateY(0); }
+}
+
 .hero-img{
-  width:220px;height:140px;
+  width:220px;
+  height:140px;
   border-radius:12px;
   border:4px solid var(--white);
   object-fit:cover;
-  margin-bottom:25px;
-  box-shadow:0 0 15px rgba(255,255,255,0.6);
+  margin-inline:auto;
+  display:block;
+  margin-bottom:20px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.12);
 }
-.hero h1{font-size:2.2rem;margin-bottom:15px;}
-.hero p{max-width:650px;margin:auto;line-height:1.6;font-size:1.05rem;}
+.hero h1{font-size:2rem;margin-bottom:12px}
+.hero p{max-width:720px;margin-inline:auto;font-size:1.03rem;color:rgba(255,255,255,0.95)}
+
+/* CTA */
 .cta-btn{
+  display:inline-block;
   background:var(--white);
   color:var(--green);
-  padding:12px 30px;
-  text-decoration:none;
-  border-radius:30px;
+  padding:12px 28px;
+  border-radius:28px;
   font-weight:600;
+  text-decoration:none;
+  margin-top:18px;
+  transition:all .28s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+.cta-btn:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,0.12);}
+
+/* countdown pill inside hero */
+.countdown{
   display:inline-block;
-  margin-top:25px;
-  transition:.3s;
+  margin-top:16px;
+  padding:8px 14px;
+  background:rgba(0,0,0,0.18);
+  color: #fff;
+  border-radius:28px;
+  font-weight:600;
+  font-size:0.98rem;
 }
-.cta-btn:hover{background:#e6f2e6;box-shadow:0 0 12px rgba(0,128,0,.4);}
 
-/* ===== SECTIONS ===== */
-section{padding:70px 25px;max-width:950px;margin:auto;opacity:0;transform:translateY(20px);animation:fadeUp 1.2s ease forwards;}
-h2{text-align:center;color:var(--green);margin-bottom:25px;font-size:1.8rem;}
-p{line-height:1.7;margin-bottom:15px;}
+/* ===== SECTION BASE =====
+   sections will animate in (fade+up) when .in-view added */
+section{
+  max-width:980px;
+  margin-inline:auto;
+  padding:64px 20px;
+  opacity:0;
+  transform:translateY(18px);
+  transition: transform 700ms cubic-bezier(.22,.9,.29,1), opacity 700ms ease;
+  will-change:transform, opacity;
+}
+section.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
 
-/* ===== OFFER ===== */
-.offer-boxes{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin:40px 0;}
+/* headings */
+h2{ text-align:center; color:var(--green); font-size:1.6rem; margin-bottom:18px }
+
+/* ===== OFFER BOXES ===== */
+.offer-boxes{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:26px;
+}
 .offer-box{
-  background:#e6f2e6;
+  background:#eaf8ec;
   border-left:6px solid var(--green);
-  border-radius:14px;
-  padding:25px;
-  width:310px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  transition:.3s;
+  padding:20px;
+  border-radius:12px;
+  width:300px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  transition:transform .28s ease, box-shadow .28s ease;
 }
-.offer-box:hover{transform:translateY(-5px);box-shadow:0 6px 16px rgba(0,0,0,.15);}
-.offer-box h3{color:var(--green);margin-bottom:10px;}
-.offer ul, .offer-box ul{list-style:none;padding:0;}
-.offer li{margin:8px 0;}
+.offer-box:hover{ transform:translateY(-6px); box-shadow:0 10px 30px rgba(0,0,0,0.08) }
+.offer-box h3{ color:var(--green); margin-bottom:10px}
+.offer-box ul{ list-style:none; padding-left:0 }
+.offer-box li{ margin:8px 0; font-weight:600; color:#0c3d19 }
 
 /* ===== TESTIMONIALS ===== */
 .testimonials .testimonial{
-  display:flex;align-items:center;
-  background:#f0fff0;
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:25px;
-  box-shadow:0 2px 10px rgba(0,0,0,.1);
-  transition:.4s;
+  display:flex;
+  gap:16px;
+  align-items:center;
+  background:#f5fff6;
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.04);
+  margin-bottom:16px;
+  transition:transform .24s ease;
 }
-.testimonials .testimonial:hover{transform:scale(1.02);}
+.testimonials .testimonial:hover{ transform:translateY(-4px) }
 .testimonials img{
-  width:85px;height:85px;border-radius:12px;
-  object-fit:cover;margin-right:18px;
-  border:3px solid var(--green);
-}
-.testimonials .text p{margin-bottom:8px;}
-
-/* ===== COUNTDOWN ===== */
-.countdown{
-  font-size:1.1rem;
-  color:#fff;
-  background:rgba(0,0,0,0.2);
-  display:inline-block;
-  padding:8px 15px;
-  border-radius:25px;
-  margin-top:20px;
-  font-weight:500;
+  width:84px;height:84px;object-fit:cover;border-radius:10px;border:3px solid var(--green);
 }
 
-/* ===== FINAL CTA ===== */
+/* text in testimonial */
+.testimonials .text p{ font-style:normal; color:#06401b; font-weight:600 }
+.testimonials .text h4{ margin-top:6px; color:#08361d; font-size:0.92rem }
+
+/* final CTA */
 .final-cta{
   text-align:center;
-  background:linear-gradient(135deg,var(--green),#66bb6a);
+  background: linear-gradient(135deg, var(--green), #66bb6a);
   color:var(--white);
-  padding:80px 25px;
-  opacity:0;transform:translateY(20px);
-  animation:fadeUp 1.5s ease forwards;
+  padding:56px 20px;
+  border-radius:10px;
+  box-shadow:0 12px 40px rgba(40,167,69,0.08);
 }
-.final-cta .cta-btn{background:var(--white);color:var(--green);}
-.final-cta .cta-btn:hover{background:#e6f2e6;color:var(--green);}
 
-/* ===== FOOTER ===== */
-footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9rem;}
+/* footer */
+footer{ background:var(--dark-green); color:#fff; padding:18px; text-align:center; font-size:0.92rem }
 
-/* ===== WHATSAPP FLOAT ===== */
+/* floating whatsapp button */
 .whatsapp-float{
-  position:fixed;bottom:22px;right:22px;width:60px;height:60px;border-radius:50%;
-  background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;
-  font-size:28px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);
-  z-index:999;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  text-decoration:none;
+  box-shadow:0 12px 36px rgba(0,0,0,0.18);
+  z-index:9999;
+  transition: transform .18s ease;
 }
+.whatsapp-float:hover{ transform:translateY(-6px) }
 
-/* ===== KEYFRAMES ===== */
-@keyframes fadeUp{
-  0%{opacity:0;transform:translateY(20px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-@keyframes slideDown{
-  0%{opacity:0;transform:translateY(-30px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-  .offer-boxes{flex-direction:column;align-items:center;}
-  .testimonials .testimonial{flex-direction:column;text-align:center;}
-  .testimonials img{margin:0 0 10px;}
+/* responsiveness */
+@media (max-width:780px){
+  .hero-img{ width:200px; height:120px }
+  .offer-box{ width:100% }
+  .testimonials .testimonial{ flex-direction:column; text-align:center }
+  .testimonials img{ margin-bottom:8px }
 }
 </style>
 </head>
 <body>
 
-<!-- HERO SECTION -->
-<header class="hero">
-  <img src="after.jpg.jpg" alt="Coach Barbie" class="hero-img"/>
+<!-- HERO -->
+<header class="hero" role="banner">
+  <img class="hero-img" src="after.jpg.jpg" alt="Coach Barbie" />
   <h1>Hi, I'm Coach Barbie 👋</h1>
-  <p>I help everyday people start earning real money online using just their smartphones — no technical skills needed!</p>
+  <p>I help everyday people start earning real money online using just their smartphones — no tech skills needed.</p>
+
   <div class="countdown" id="countdown">⏰ This special offer ends in: 24 hrs 00 mins 00 secs</div>
-  <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Join My WhatsApp Community</a>
+
+  <div style="margin-top:18px">
+    <a class="cta-btn" href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" target="_blank" rel="noopener">Join My WhatsApp Community</a>
+  </div>
 </header>
 
-<!-- ABOUT SECTION -->
-<section class="about">
+<!-- ABOUT -->
+<section class="about" id="about">
   <h2>About Me</h2>
-  <p>I started my online journey struggling to make a single sale. After testing countless methods, I discovered a simple system that works, helping ordinary people earn their first online income in days. Now, I teach others to achieve the same success quickly and confidently.</p>
+  <p>Years ago I struggled to earn online — I tried courses and "shortcuts" that wasted my time. After testing dozens of methods, I refined a simple, repeatable system that works on any phone. Today I teach students to get their first real paydays quickly, with practical steps and personal support. If you want clear steps (not hype), you're in the right place.</p>
 </section>
 
-<!-- OFFERS SECTION -->
-<section class="offer">
+<!-- OFFER -->
+<section class="offer" id="offer">
   <h2>My Special Offer 💰</h2>
-  <p>Introducing <strong>“The Online Income Starter Pack”</strong> — a step-by-step roadmap for beginners to make their first $100–$200 online with zero experience.</p>
-  <div class="offer-boxes">
-    <div class="offer-box">
-      <h3>What You’ll Learn</h3>
+  <p><strong>The Online Income Starter Pack</strong> — a compact, step-by-step roadmap that helps beginners make their first <strong>$100–$200</strong> online within days using only a smartphone.</p>
+
+  <div class="offer-boxes" aria-hidden="false">
+    <div class="offer-box" role="group" aria-label="What you'll learn">
+      <h3>What you'll learn</h3>
       <ul>
-        <li>✅ Step-by-step methods to earn your first online income fast</li>
-        <li>✅ Platforms that actually pay (no scams)</li>
-        <li>✅ How to create offers that sell instantly</li>
-        <li>✅ Techniques to scale into consistent daily income</li>
+        <li>✅ Exact platforms that pay (no guesswork)</li>
+        <li>✅ How to create offers that convert fast</li>
+        <li>✅ Traffic methods you can do on phone</li>
+        <li>✅ How to scale from $100 to $500+ monthly</li>
       </ul>
     </div>
-    <div class="offer-box">
-      <h3>Exclusive Bonuses</h3>
+
+    <div class="offer-box" role="group" aria-label="Bonuses">
+      <h3>Exclusive bonuses</h3>
       <ul>
-        <li>🎁 Free 1-on-1 mentorship with Coach Barbie</li>
+        <li>🎁 Free 1-on-1 mentorship with me</li>
         <li>🎁 Access to private WhatsApp community</li>
-        <li>🎁 Personal success checklist & tools</li>
-        <li>🎁 Insider strategies for quick results</li>
+        <li>🎁 Personal success checklist & swipe files</li>
+        <li>🎁 Fast-start strategies for quick wins</li>
       </ul>
     </div>
   </div>
-  <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Get My Free Guide</a>
+
+  <div style="text-align:center;margin-top:18px">
+    <a class="cta-btn" href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" target="_blank" rel="noopener">Get My Free Guide</a>
+  </div>
 </section>
 
-<!-- TESTIMONIALS SECTION -->
-<section class="testimonials">
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
   <h2>What My Students Say</h2>
 
   <div class="testimonial">
-    <img src="jordy.jpg.jpg" alt="Student 1"/>
+    <img src="jordy.jpg.jpg" alt="Jordy - student" />
     <div class="text">
-      <p>“I had no idea how to start making money online, but Coach Barbie’s guidance made it simple. In just 7 days, I earned my first $180!”</p>
+      <p>“I had no idea where to start. Coach Barbie’s steps were clear and practical — I made $180 in my first week.”</p>
       <h4>– Michael D.</h4>
     </div>
   </div>
 
   <div class="testimonial">
-    <img src="sadat.jpg.jpg" alt="Student 2"/>
+    <img src="sadat.jpg.jpg" alt="Sadat - student" />
     <div class="text">
-      <p>“Coach Barbie doesn’t just teach, she walks with you. Within 2 weeks, I was making consistent income using just my phone.”</p>
+      <p>“She doesn’t teach theory — she teaches what works. Within 2 weeks I had consistent sales from my phone.”</p>
       <h4>– Sarah K.</h4>
     </div>
   </div>
 
   <div class="testimonial">
-    <img src="asenso.jpg.jpg" alt="Student 3"/>
+    <img src="asenso.jpg.jpg" alt="Asenso - student" />
     <div class="text">
-      <p>“Joining Coach Barbie’s program was the best decision ever. I made over $250 in one week!”</p>
+      <p>“Best decision ever. From zero to $250+ in one week — Coach Barbie’s shortcut actually worked for me.”</p>
       <h4>– Daniel O.</h4>
     </div>
   </div>
 
   <div class="testimonial">
-    <img src="naomi.jpg.jpg" alt="Student 4"/>
+    <img src="naomi.jpg.jpg" alt="Naomi - student" />
     <div class="text">
-      <p>“I was skeptical at first, but Coach Barbie’s mentorship exceeded all my expectations. I made my first sale within 3 days.”</p>
+      <p>“I was skeptical but the mentorship exceeded my expectations. I made my first sale in 3 days.”</p>
       <h4>– Rebecca L.</h4>
     </div>
   </div>
 
   <div class="testimonial">
-    <img src="boison.jpg.jpg" alt="Student 5"/>
+    <img src="boison.jpg.jpg" alt="Boison - student" />
     <div class="text">
-      <p>“Thanks to Coach Barbie, I now understand how to create real online income. Her tips are simple, actionable, and effective.”</p>
+      <p>“Practically the only course that gave me step-by-step support. Now I have repeatable income streams.”</p>
       <h4>– Joshua M.</h4>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
+<section class="final-cta" id="final-cta">
   <h2>Ready to Start Your Online Journey?</h2>
-  <p>You don’t need to be techy or experienced — just ready to learn. Join my WhatsApp community and start today.</p>
-  <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Join Now</a>
+  <p>Join my WhatsApp community for direct help, templates, and personal feedback. Start today — small action leads to real results.</p>
+  <div style="margin-top:18px">
+    <a class="cta-btn" href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" target="_blank" rel="noopener">Join Now</a>
+  </div>
 </section>
 
 <footer>
   <p>© 2025 Coach Barbie. All Rights Reserved.</p>
 </footer>
 
-<a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
+<a class="whatsapp-float" href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" title="Chat on WhatsApp" target="_blank" rel="noopener">💬</a>
 
-<!-- JS -->
 <script>
-// 24-hour countdown
-function startCountdown() {
-  const countdownEl = document.getElementById('countdown');
-  let endTime = new Date().getTime() + 24*60*60*1000;
-  function updateTimer(){
-    let now = new Date().getTime();
-    let distance = endTime - now;
-    if(distance < 0){distance = 0;}
-    let hrs = Math.floor((distance/(1000*60*60))%24);
-    let mins = Math.floor((distance/(1000*60))%60);
-    let secs = Math.floor((distance/1000)%60);
-    countdownEl.textContent = ⏰ This special offer ends in: ${hrs} hrs ${mins} mins ${secs} secs;
-  }
-  updateTimer();
-  setInterval(updateTimer,1000);
-}
-startCountdown();
-</script>
+/* ===== stable scroll animations with safe fallback ===== */
 
+/* elements we want to animate on scroll */
+const animateEls = document.querySelectorAll('section, .hero');
+
+const ioOptions = {
+  root: null,
+  rootMargin: "0px 0px -10% 0px",
+  threshold: 0.12
+};
+
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+    }
+  });
+}, ioOptions);
+
+/* observe each element */
+animateEls.forEach(el => {
+  io.observe(el);
+});
+
+/* fallback: if some elements are still hidden after 2s, make them visible */
+window.addEventListener('load', () => {
+  // small delay to allow CSS animations on hero to run first
+  setTimeout(() => {
+    document.querySelectorAll('section, .hero').forEach(el => {
+      // If element already visible in DOM (bounding rect intersects viewport) add in-view
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight && rect.bottom >= 0){
+        el.classList.add('in-view');
+      }
+    });
+    // add global fallback after 2.5s to prevent anything staying hidden
+    setTimeout(()=> {
+      document.querySelectorAll('section, .hero').forEach(el => el.classList.add('in-view'));
+    }, 2500);
+  }, 120);
+});
+
+/* ===== 24-hour countdown (updates every second) ===== */
+(function startCountdown(){
+  const el = document.getElementById('countdown');
+  if(!el) return;
+  // set end-time to 24 hours from now (resets on reload)
+  const end = Date.now() + 24*60*60*1000;
+
+  function pad(n){ return n < 10 ? '0' + n : n; }
+
+  function tick(){
+    const now = Date.now();
+    let diff = end - now;
+    if(diff < 0) diff = 0;
+    const hrs = Math.floor(diff / (1000*60*60));
+    const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const secs = Math.floor((diff % (1000*60)) / 1000);
+    el.textContent = ⏰ This special offer ends in: ${hrs} hrs ${pad(mins)} mins ${pad(secs)} secs;
+    // if you want to do something at end, check diff === 0 here
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 </body>
 </html>
