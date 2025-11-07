@@ -24,6 +24,8 @@
 body {
   background: var(--light);
   color: var(--dark);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 /* ===== HERO SECTION ===== */
@@ -36,8 +38,8 @@ body {
 }
 
 .hero img {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 4px solid var(--white);
   object-fit: cover;
@@ -125,10 +127,14 @@ body {
   padding: 40px;
   margin-bottom: 40px;
   box-shadow: var(--shadow);
-  transition: .4s ease;
-  min-height: 220px;
-  animation: fadeUp 1s ease forwards;
+  transition: transform 0.4s ease;
   opacity: 0;
+  transform: translateY(50px);
+}
+
+.testimonial.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .testimonial:hover {
@@ -136,8 +142,8 @@ body {
 }
 
 .testimonial img {
-  width: 130px;
-  height: 130px;
+  width: 250px;
+  height: auto;
   border-radius: 16px;
   object-fit: cover;
   margin-right: 25px;
@@ -207,22 +213,17 @@ footer a {
   100% {opacity: 1; transform: translateY(0);}
 }
 
-@keyframes fadeUp {
-  to {opacity: 1; transform: translateY(0);}
-}
-
 @media(max-width: 768px) {
   .testimonial {
     flex-direction: column;
     text-align: center;
     padding: 28px;
-    min-height: auto;
   }
 
   .testimonial img {
     margin: 0 0 20px;
-    width: 120px;
-    height: 120px;
+    width: 90%;
+    max-width: 320px;
   }
 
   .testimonial .text p {
@@ -238,7 +239,6 @@ footer a {
     <h1>Coach Barbie</h1>
     <p>I help everyday people turn their phones into income tools through affiliate marketing. If I could do it, so can you!</p>
     <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta">Join My WhatsApp Community</a>
-
     <div class="timer" id="countdown">Offer ends in: 00h : 00m : 00s</div>
   </section>
 
@@ -262,24 +262,24 @@ footer a {
     <div class="testimonial">
       <img src="sadat.jpg.jpg" alt="Sadat">
       <div class="text">
-        <p>Her step-by-step breakdown made affiliate marketing so easy. I now earn daily commissions without stress.</p>
-        <h4>Cheddor</h4>
+        <p>“Her step-by-step breakdown made affiliate marketing so easy. I now earn daily commissions without stress.”</p>
+        <h4>— Sadat Abubakar</h4>
       </div>
     </div>
 
     <div class="testimonial">
       <img src="asenso.jpg.jpg" alt="Asenso">
       <div class="text">
-        <p>At first, I doubted it could work. But after two weeks, I saw real results! Coach Barbie truly delivers.</p>
-        <h4>Sandra</h4>
+        <p>“At first, I doubted it could work. But after two weeks, I saw real results! Coach Barbie truly delivers.”</p>
+        <h4>— Asenso Patrick</h4>
       </div>
     </div>
 
     <div class="testimonial">
       <img src="naomi.jpg.jpg" alt="Naomi">
       <div class="text">
-        <p>Barbie’s guidance helped me build confidence and income at the same time. I recommend her to every student!</p>
-        <h4>Naomi</h4>
+        <p>“Barbie’s guidance helped me build confidence and income at the same time. I recommend her to every student!”</p>
+        <h4>— Naomi Asante</h4>
       </div>
     </div>
 
@@ -287,7 +287,7 @@ footer a {
       <img src="boison.jpg.jpg" alt="Boison">
       <div class="text">
         <p>“The community she built keeps me motivated daily. The results are real, and the mentorship is gold!”</p>
-        <h4>Raymond.</h4>
+        <h4>Sara.</h4>
       </div>
     </div>
   </section>
@@ -314,10 +314,14 @@ footer a {
   </footer>
 
 <script>
-// ===== Countdown Timer =====
+// ===== Smooth Page Fade-In =====
+window.addEventListener("load", () => {
+  document.body.style.opacity = "1";
+});
+
+// ===== Countdown Timer (24 hours) =====
 const countdown = document.getElementById("countdown");
-const endDate = new Date();
-endDate.setHours(endDate.getHours() + 24); // 24-hour countdown
+const endDate = new Date().getTime() + 24 * 60 * 60 * 1000;
 
 function updateCountdown() {
   const now = new Date().getTime();
@@ -336,14 +340,13 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000);
 
-// ===== Fade Up on Scroll =====
+// ===== Fade Up Testimonials on Scroll =====
 const testimonials = document.querySelectorAll(".testimonial");
 window.addEventListener("scroll", () => {
   testimonials.forEach(t => {
     const rect = t.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
-      t.style.opacity = "1";
-      t.style.transform = "translateY(0)";
+      t.classList.add("visible");
     }
   });
 });
