@@ -1,286 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coach Barbie | Make Money Online</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coach Barbie | Affiliate Success Journey</title>
+
 <style>
-:root {--green:#28a745;--white:#ffffff;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:var(--white);color:#222;scroll-behavior:smooth;overflow-x:hidden;}
+:root {
+  --green: #0aa22a;
+  --dark: #043d17;
+  --light: #f6fff6;
+  --white: #ffffff;
+  --shadow: 0 6px 20px rgba(0, 0, 0, .1);
+}
 
-/* ===== HERO ===== */
-.hero{
-  background:linear-gradient(135deg,var(--green),#66bb6a);
-  color:var(--white);
-  text-align:center;
-  padding:90px 25px 70px;
-  opacity:0;
-  transform:translateY(-30px);
-  animation:slideDown 1.5s ease forwards;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-.hero-img{
-  width:220px;height:140px;
-  border-radius:12px;
-  border:4px solid var(--white);
-  object-fit:cover;
-  margin-bottom:25px;
-  box-shadow:0 0 15px rgba(255,255,255,0.6);
-}
-.hero h1{font-size:2.2rem;margin-bottom:15px;}
-.hero p{max-width:650px;margin:auto;line-height:1.6;font-size:1.05rem;}
-.cta-btn{
-  background:var(--white);
-  color:var(--green);
-  padding:12px 30px;
-  text-decoration:none;
-  border-radius:30px;
-  font-weight:600;
-  display:inline-block;
-  margin-top:25px;
-  transition:.3s;
-}
-.cta-btn:hover{background:#e6f2e6;box-shadow:0 0 12px rgba(0,128,0,.4);}
 
-/* ===== SECTIONS ===== */
-section{padding:70px 25px;max-width:950px;margin:auto;opacity:0;transform:translateY(20px);animation:fadeUp 1.2s ease forwards;}
-h2{text-align:center;color:var(--green);margin-bottom:25px;font-size:1.8rem;}
-p{line-height:1.7;margin-bottom:15px;}
-
-/* ===== OFFER ===== */
-.offer-boxes{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin:40px 0;}
-.offer-box{
-  background:#e6f2e6;
-  border-left:6px solid var(--green);
-  border-radius:14px;
-  padding:25px;
-  width:310px;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  transition:.3s;
+body {
+  background: var(--light);
+  color: var(--dark);
 }
-.offer-box:hover{transform:translateY(-5px);box-shadow:0 6px 16px rgba(0,0,0,.15);}
-.offer-box h3{color:var(--green);margin-bottom:10px;}
-.offer ul, .offer-box ul{list-style:none;padding:0;}
-.offer li{margin:8px 0;}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(145deg, var(--green), #17c145);
+  color: var(--white);
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.hero img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--white);
+  color: var(--green);
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.cta:hover {
+  background: #e9ffe9;
+}
+
+/* ===== COUNTDOWN TIMER ===== */
+.timer {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-top: 20px;
+  background: var(--white);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* ===== STORY SECTION ===== */
+.story {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.story h2 {
+  font-size: 2rem;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+
+.story p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #06391a;
+  margin-bottom: 20px;
+}
 
 /* ===== TESTIMONIALS ===== */
-.testimonials .testimonial{
-  display:flex;
-  align-items:flex-start;
-  background:#f0fff0;
-  border-radius:14px;
-  padding:28px;
-  margin-bottom:35px;
-  box-shadow:0 4px 16px rgba(0,0,0,.1);
-  transition:.4s;
-  min-height:160px;
-}
-.testimonials .testimonial:hover{transform:scale(1.02);}
-.testimonials img{
-  width:100px;
-  height:100px;
-  border-radius:14px;
-  object-fit:cover;
-  margin-right:20px;
-  border:3px solid var(--green);
-  flex-shrink:0;
-}
-.testimonials .text p{
-  margin-bottom:10px;
-  font-size:1.05rem;
-  line-height:1.8;
-  color:#06401b;
-  font-weight:500;
-}
-.testimonials .text h4{
-  font-size:1rem;
-  color:#0a3618;
-  font-weight:600;
+.testimonials {
+  padding: 60px 20px;
+  background: var(--white);
 }
 
-/* ===== COUNTDOWN ===== */
-.countdown{
-  font-size:1.1rem;
-  color:#fff;
-  background:rgba(0,0,0,0.2);
-  display:inline-block;
-  padding:8px 15px;
-  border-radius:25px;
-  margin-top:20px;
-  font-weight:500;
+.testimonials h2 {
+  text-align: center;
+  color: var(--green);
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
-/* ===== FINAL CTA ===== */
-.final-cta{
-  text-align:center;
-  background:linear-gradient(135deg,var(--green),#66bb6a);
-  color:var(--white);
-  padding:80px 25px;
-  opacity:0;transform:translateY(20px);
-  animation:fadeUp 1.5s ease forwards;
+.testimonial {
+  display: flex;
+  align-items: flex-start;
+  background: #f0fff0;
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+  transition: .4s ease;
+  min-height: 220px;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
 }
-.final-cta .cta-btn{background:var(--white);color:var(--green);}
-.final-cta .cta-btn:hover{background:#e6f2e6;color:var(--green);}
+
+.testimonial:hover {
+  transform: scale(1.02);
+}
+
+.testimonial img {
+  width: 130px;
+  height: 130px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-right: 25px;
+  border: 3px solid var(--green);
+  flex-shrink: 0;
+}
+
+.testimonial .text p {
+  margin-bottom: 15px;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #053b17;
+  font-weight: 500;
+}
+
+.testimonial .text h4 {
+  font-size: 1.05rem;
+  color: #0a3618;
+  font-weight: 600;
+}
+
+/* ===== OFFERS ===== */
+.offers {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--light);
+}
+
+.offers h2 {
+  color: var(--green);
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.offer-box {
+  background: var(--white);
+  padding: 30px;
+  margin: 15px auto;
+  max-width: 700px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.offer-box strong {
+  color: var(--green);
+}
 
 /* ===== FOOTER ===== */
-footer{background:#19692c;color:#fff;text-align:center;padding:18px;font-size:.9rem;}
-
-/* ===== WHATSAPP FLOAT ===== */
-.whatsapp-float{
-  position:fixed;bottom:22px;right:22px;width:60px;height:60px;border-radius:50%;
-  background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;
-  font-size:28px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.3);
-  z-index:999;
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 500;
 }
 
-/* ===== KEYFRAMES ===== */
-@keyframes fadeUp{
-  0%{opacity:0;transform:translateY(20px);}
-  100%{opacity:1;transform:translateY(0);}
-}
-@keyframes slideDown{
-  0%{opacity:0;transform:translateY(-30px);}
-  100%{opacity:1;transform:translateY(0);}
+footer a {
+  color: var(--white);
+  text-decoration: underline;
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-  .offer-boxes{flex-direction:column;align-items:center;}
-  .testimonials .testimonial{
-    flex-direction:column;
-    text-align:center;
-    padding:24px;
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(-30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@media(max-width: 768px) {
+  .testimonial {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px;
+    min-height: auto;
   }
-  .testimonials img{
-    margin:0 0 15px;
-    width:110px;height:110px;
+
+  .testimonial img {
+    margin: 0 0 20px;
+    width: 120px;
+    height: 120px;
   }
-  .testimonials .text p{font-size:1.08rem;}
+
+  .testimonial .text p {
+    font-size: 1.12rem;
+  }
 }
 </style>
 </head>
+
 <body>
+  <section class="hero">
+    <img src="after.jpg.jpg" alt="Coach Barbie">
+    <h1>Coach Barbie</h1>
+    <p>I help everyday people turn their phones into income tools through affiliate marketing. If I could do it, so can you!</p>
+    <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta">Join My WhatsApp Community</a>
 
-<!-- HERO SECTION -->
-<header class="hero">
-  <img src="images/coach-barbie.jpg" alt="Coach Barbie" class="hero-img"/>
-  <h1>Hi, I'm Coach Barbie 👋</h1>
-  <p>I help everyday people start earning real money online using just their smartphones — no technical skills needed!</p>
-  <div class="countdown" id="countdown">⏰ This special offer ends in: 24 hrs 00 mins 00 secs</div>
-  <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Join My WhatsApp Community</a>
-</header>
+    <div class="timer" id="countdown">Offer ends in: 00h : 00m : 00s</div>
+  </section>
 
-<!-- ABOUT SECTION -->
-<section class="about">
-  <h2>About Me</h2>
-  <p>I started my online journey struggling to make a single sale. After testing countless methods, I discovered a simple system that works, helping ordinary people earn their first online income in days. Now, I teach others to achieve the same success quickly and confidently.</p>
-</section>
+  <section class="story">
+    <h2>My Journey to Financial Freedom</h2>
+    <p>I started affiliate marketing as a complete beginner. With focus, mentorship, and proven strategies, I made my first ₵500 in just one week and now earn consistently every month — all from my phone.</p>
+    <p>Now, I’m on a mission to help others like you replicate the same success. My system is simple, beginner-friendly, and has already helped dozens of people achieve their first online income.</p>
+  </section>
 
-<!-- OFFERS SECTION -->
-<section class="offer">
-  <h2>My Special Offer 💰</h2>
-  <p>Introducing <strong>“The Online Income Starter Pack”</strong> — a step-by-step roadmap for beginners to make their first $100–$200 online with zero experience.</p>
-  <div class="offer-boxes">
+  <section class="testimonials">
+    <h2>What My Students Say</h2>
+
+    <div class="testimonial">
+      <img src="jordy.jpg.jpg" alt="Jordy">
+      <div class="text">
+        <p>“Coach Barbie’s mentorship changed my life! I made my first ₵400 sale within 5 days of joining her training.”</p>
+        <h4>— Jordy Mensah</h4>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <img src="sadat.jpg.jpg" alt="Sadat">
+      <div class="text">
+        <p>“Her step-by-step breakdown made affiliate marketing so easy. I now earn daily commissions without stress.”</p>
+        <h4>— Sadat Abubakar</h4>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <img src="asenso.jpg.jpg" alt="Asenso">
+      <div class="text">
+        <p>“At first, I doubted it could work. But after two weeks, I saw real results! Coach Barbie truly delivers.”</p>
+        <h4>— Asenso Patrick</h4>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <img src="naomi.jpg.jpg" alt="Naomi">
+      <div class="text">
+        <p>“Barbie’s guidance helped me build confidence and income at the same time. I recommend her to every student!”</p>
+        <h4>— Naomi Asante</h4>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <img src="boison.jpg.jpg" alt="Boison">
+      <div class="text">
+        <p>“The community she built keeps me motivated daily. The results are real, and the mentorship is gold!”</p>
+        <h4>— Boison K.</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="offers">
+    <h2>Exclusive Offers for New Members</h2>
     <div class="offer-box">
-      <h3>What You’ll Learn</h3>
-      <ul>
-        <li>✅ Step-by-step methods to earn your first online income fast</li>
-        <li>✅ Platforms that actually pay (no scams)</li>
-        <li>✅ How to create offers that sell instantly</li>
-        <li>✅ Techniques to scale into consistent daily income</li>
-      </ul>
+      🎁 <strong>Free Affiliate Training:</strong> Learn exactly how to make your first sale in 7 days — even as a beginner.
     </div>
     <div class="offer-box">
-      <h3>Exclusive Bonuses</h3>
-      <ul>
-        <li>🎁 Free 1-on-1 mentorship with Coach Barbie</li>
-        <li>🎁 Access to private WhatsApp community</li>
-        <li>🎁 Personal success checklist & tools</li>
-        <li>🎁 Insider strategies for quick results</li>
-      </ul>
+      💬 <strong>Access to My Private WhatsApp Group:</strong> Get daily mentorship, tips, and motivation directly from me.
     </div>
-  </div>
-  <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Get My Free Guide</a>
-</section>
-
-<!-- TESTIMONIALS SECTION -->
-<section class="testimonials">
-  <h2>What My Students Say</h2>
-
-  <div class="testimonial">
-    <img src="images/testimonial1.jpg" alt="Student 1"/>
-    <div class="text">
-      <p>“I had no idea how to start making money online, but Coach Barbie’s guidance made it simple. In just 7 days, I earned my first $180!”</p>
-      <h4>– Michael D.</h4>
+    <div class="offer-box">
+      🛠 <strong>Step-by-Step Blueprint:</strong> Follow my exact system that’s helped many achieve financial freedom.
     </div>
-  </div>
-
-  <div class="testimonial">
-    <img src="images/testimonial2.jpg" alt="Student 2"/>
-    <div class="text">
-      <p>“Coach Barbie doesn’t just teach, she walks with you. Within 2 weeks, I was making consistent income using just my phone.”</p>
-      <h4>– Sarah K.</h4>
+    <div class="offer-box">
+      🚀 <strong>Weekly Challenges + Cash Rewards:</strong> Win exciting bonuses while building your affiliate business.
     </div>
-  </div>
+    <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta">Join Now Before Offer Ends</a>
+  </section>
 
-  <div class="testimonial">
-    <img src="images/testimonial3.jpg" alt="Student 3"/>
-    <div class="text">
-      <p>“Joining Coach Barbie’s program was the best decision ever. I made over $250 in one week!”</p>
-      <h4>– Daniel O.</h4>
-    </div>
-  </div>
+  <footer>
+    © 2025 Coach Barbie | All Rights Reserved | Powered by Affiliate Success Team
+  </footer>
 
-  <div class="testimonial">
-    <img src="images/testimonial4.jpg" alt="Student 4"/>
-    <div class="text">
-      <p>“I was skeptical at first, but Coach Barbie’s mentorship exceeded all my expectations. I made my first sale within 3 days.”</p>
-      <h4>– Rebecca L.</h4>
-    </div>
-  </div>
-
-  <div class="testimonial">
-    <img src="images/testimonial5.jpg" alt="Student 5"/>
-    <div class="text">
-      <p>“Thanks to Coach Barbie, I now understand how to create real online income. Her tips are simple, actionable, and effective.”</p>
-      <h4>– Joshua M.</h4>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <h2>Ready to Start Your Online Journey?</h2>
-  <p>You don’t need to be techy or experienced — just ready to learn. Join my WhatsApp community and start today.</p>
-  <a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="cta-btn">Join Now</a>
-</section>
-
-<footer>
-  <p>© 2025 Coach Barbie. All Rights Reserved.</p>
-</footer>
-
-<a href="https://chat.whatsapp.com/Cj4CTJRhZZz0ykbOEJjAwP?mode=wwt" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
-
-<!-- JS -->
 <script>
-// 24-hour countdown
-function startCountdown() {
-  const countdownEl = document.getElementById('countdown');
-  let endTime = new Date().getTime() + 24*60*60*1000;
-  function updateTimer(){
-    let now = new Date().getTime();
-    let distance = endTime - now;
-    if(distance < 0){distance = 0;}
-    let hrs = Math.floor((distance/(1000*60*60))%24);
-    let mins = Math.floor((distance/(1000*60))%60);
-    let secs = Math.floor((distance/1000)%60);
-    countdownEl.textContent = ⏰ This special offer ends in: ${hrs} hrs ${mins} mins ${secs} secs;
-  }
-  updateTimer();
-  setInterval(updateTimer,1000);
-}
-startCountdown();
-</script>
+// ===== Countdown Timer =====
+const countdown = document.getElementById("countdown");
+const endDate = new Date();
+endDate.setHours(endDate.getHours() + 24); // 24-hour countdown
 
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = endDate - now;
+
+  if (distance < 0) {
+    countdown.innerHTML = "Offer expired!";
+    return;
+  }
+
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  countdown.innerHTML = Offer ends in: ${hours}h : ${minutes}m : ${seconds}s;
+}
+setInterval(updateCountdown, 1000);
+
+// ===== Fade Up on Scroll =====
+const testimonials = document.querySelectorAll(".testimonial");
+window.addEventListener("scroll", () => {
+  testimonials.forEach(t => {
+    const rect = t.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      t.style.opacity = "1";
+      t.style.transform = "translateY(0)";
+    }
+  });
+});
+</script>
 </body>
 </html>
